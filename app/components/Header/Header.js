@@ -3,7 +3,7 @@ import {
     View,
     TouchableOpacity,
     Image,
-    StyleSheet
+    StyleSheet,
 } from "react-native";
 import Proptypes from "prop-types";
 
