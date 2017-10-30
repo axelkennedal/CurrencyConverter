@@ -3,8 +3,9 @@
 Use `yarn run android` to start the development server and run the app on a connected device. Logging output will be displayed in the terminal where this command was run.
 
 ## Package management
-**DON'T USE NPM!** Since NPM v5 there is a bug which removes nearly all dependencies when running `npm install [some-package] --save` in a React Native project.
-***Use Yarn instead**, e.g. `yarn add [some-package]` to install a package, `yarn remove [some-package]` to remove a package.
+**DON'T USE NPM!** Since NPM v5 there is [a bug which removes nearly all dependencies](https://github.com/npm/npm/issues/17929) when running `npm install [some-package] --save` in a React Native project.
+
+**Use Yarn instead**, e.g. `yarn add [some-package]` to install a package, `yarn remove [some-package]` to remove a package.
 
 # Create React Native App - Standard README
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
