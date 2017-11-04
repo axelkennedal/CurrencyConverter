@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { ScrollView, Linking } from "react-native";
 import Proptypes from "prop-types";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import DropdownAlert from "react-native-dropdownalert";
 
 import colors from "../config/style";
 import ListItem from "../components/List/ListItem";
@@ -28,7 +27,6 @@ class Options extends Component {
                     }
                 />
                 <Separator />
-                <DropdownAlert ref={ref => this.dropdown = ref} />
             </ScrollView>
         );
     }
@@ -40,8 +38,7 @@ class Options extends Component {
 
     handleSitePress() {
         console.log("pressed site");
-        console.log(this.dropdown);
-        Linking.openURL("httep://fixer.io").catch(() => this.dropdown.alertWithType("error", "Sorry!", "Could not open Fixer.io"));
+        Linking.openURL("httep://fixer.io").catch(() => alert("Could not open Fixer.io"));
     }
 }
 
