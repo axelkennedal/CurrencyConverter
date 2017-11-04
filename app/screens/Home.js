@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StatusBar, KeyboardAvoidingView } from "react-native";
 import Proptypes from "prop-types";
+import { connect } from "react-redux";
 
 import Container from "../components/Container/Container";
 import Logo from "../components/Logo/Logo";
@@ -9,6 +10,8 @@ import ClearButton from "../components/Buttons/ClearButton";
 import LastConverted from "../components/Text/LastConverted";
 import Header from "../components/Header/Header";
 
+import { swapCurrency, changeCurrencyAmount } from "../actions/currencies";
+
 const DEFAULT_FROM_CURRENCY = "SEK";
 const DEFAULT_TO_CURRENCY = "USD";
 const DEFAULT_FROM_AMOUNT = "100";
@@ -16,7 +19,7 @@ const DEFAULT_TO_AMOUNT = "69";
 const CONVERSION_RATE = 0.69;
 const CONVERSION_DATE = new Date();
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
     return (
       <Container>
@@ -69,10 +72,12 @@ export default class Home extends Component {
 
   handleTextChange(newText) {
     console.log("change text", newText);
+    this.props.dispatch(changeCurrencyAmount(newText));
   }
 
   handleSwapCurrency() {
     console.log("pressed swap currency");
+    this.props.dispatch(swapCurrency());
   }
 
   handleOptionsPressed = () => {
@@ -80,7 +85,9 @@ export default class Home extends Component {
     this.props.navigation.navigate("Options");
   }
 }
+export default connect()(Home);
 
 Home.propTypes = {
-  navigation: Proptypes.object
+  navigation: Proptypes.object,
+  dispatch: Proptypes.func,
 }
