@@ -36,7 +36,7 @@ class Options extends Component {
         this.props.navigation.navigate("Themes");
     }
 
-    handleSitePress() {
+    handleSitePress = () => {
         console.log("pressed site");
         Linking.openURL("httep://fixer.io").catch(() => alert("Could not open Fixer.io"));
     }

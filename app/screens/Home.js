@@ -70,12 +70,12 @@ class Home extends Component {
     this.props.navigation.navigate("CurrencyList", { title: "Convert To" });
   }
 
-  handleTextChange(newText) {
+  handleTextChange = (newText) => {
     console.log("change text", newText);
     this.props.dispatch(changeCurrencyAmount(newText));
   }
 
-  handleSwapCurrency() {
+  handleSwapCurrency = () => {
     console.log("pressed swap currency");
     this.props.dispatch(swapCurrency());
   }
